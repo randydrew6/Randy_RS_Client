@@ -3316,12 +3316,12 @@ namespace RS_Client
             try
             {
                 tabControl2.SelectedTab.Text = ((WebBrowser)tabControl2.SelectedTab.Controls[0]).DocumentTitle.Substring(0, 8);
+                txt_ur.Text = ((WebBrowser)tabControl2.SelectedTab.Controls[0]).Url.ToString();
             }
             catch
             {
                 tabControl2.SelectedTab.Text = "Page";
             }
-            txt_ur.Text = ((WebBrowser)tabControl2.SelectedTab.Controls[0]).Url.ToString();
         }
 
         private void btn_clearembed_Click(object sender, EventArgs e)
@@ -3348,12 +3348,12 @@ namespace RS_Client
             try
             {
                 tabControl2.SelectedTab.Text = ((WebBrowser)tabControl2.SelectedTab.Controls[0]).DocumentTitle.Substring(0, 8);
+                txt_ur.Text = ((WebBrowser)tabControl2.SelectedTab.Controls[0]).Url.ToString();
             }
             catch
             {
                 tabControl2.SelectedTab.Text = "Page";
             }
-            txt_ur.Text = ((WebBrowser)tabControl2.SelectedTab.Controls[0]).Url.ToString();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
