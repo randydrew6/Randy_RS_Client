@@ -736,7 +736,7 @@ namespace RS_Client
         {
             try
             {
-                Match rtnstr = Regex.Match(RandysStringFunctions.GetHtmlContent("http://manga.animea.net" + title + "-chapter-" + chapter + "-page-1" + ".html"), @"(?<=Page 1 of )[0-9]+", RegexOptions.Compiled);
+                Match rtnstr = Regex.Match(RandysStringFunctions.GetHtmlContent("http://manga.animea.net" + title + "-chapter-" + chapter + "-page-1.html"), @"(?<=Page 1 of )[0-9]+", RegexOptions.Compiled);
                 mangachappages = Convert.ToInt16(rtnstr.Value);
                 if (Convert.ToInt32(page) > mangachappages)
                 {
@@ -744,7 +744,7 @@ namespace RS_Client
                     page = "1";
                 }
 
-                Match tmp = Regex.Match(RandysStringFunctions.GetHtmlContent("http://manga.animea.net" + title + "-chapter-" + chapter + "-page-" + page + ".html"), @"(?<=-chapter-.*-page-.*><img.*src="").*(?="".*nerror=.*mangaimg)", RegexOptions.Compiled);
+                Match tmp = Regex.Match(RandysStringFunctions.GetHtmlContent("http://manga.animea.net" + title + "-chapter-" + chapter + "-page-" + page + ".html"), @"(?<=-chapter-.*-page-.*><img.*src="").*(?=""  class=""mangaimg)", RegexOptions.Compiled);
                 mangapicurl = tmp.ToString();
             }
             catch { }
@@ -3384,7 +3384,7 @@ namespace RS_Client
                     originaltitle = Regex.Match(mangastr, @"(?<=<h1>).*(?= Manga</h1>)", RegexOptions.Compiled).Value;
                     title = Regex.Match(mangastr, @"(?<=data-href=""http://manga.animea.net).*(?=[.]html.*data-num-posts=)", RegexOptions.Compiled).Value;
                     string strsearch = RandysStringFunctions.GetHtmlContent("http://manga.animea.net" + title + "-chapter-1-page-1.html");
-                    Match tmp = Regex.Match(strsearch, @"(?<=-chapter-.*-page-.*><img.*src="").*(?="".*nerror=.*mangaimg)", RegexOptions.Compiled);
+                    Match tmp = Regex.Match(strsearch, @"(?<=-chapter-.*-page-.*><img.*src="").*(?=""  class=""mangaimg)", RegexOptions.Compiled);
                     mangapicurl = tmp.ToString();
                     tmp = Regex.Match(strsearch, @"(?<=Page 1 of )[0-9]+", RegexOptions.Compiled);
                     mangachappages = Convert.ToInt16(tmp.Value);
